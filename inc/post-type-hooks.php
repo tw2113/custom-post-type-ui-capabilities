@@ -23,8 +23,8 @@ function add_post_type_capabilities_ui( $ui = '' ) {
 	$tab = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
 
 	if ( 'edit' === $tab ) {
-		$post_types         = cptui_get_post_type_data();
-		$selected_post_type = cptui_get_current_post_type();
+		$post_types         = get_post_type_capabilities_data();
+		$selected_post_type = \cptui_get_current_post_type();
 
 		if ( $selected_post_type ) {
 			if ( array_key_exists( $selected_post_type, $post_types ) ) {
