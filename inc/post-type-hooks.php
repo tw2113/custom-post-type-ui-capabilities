@@ -42,11 +42,6 @@ function add_post_type_capabilities_ui( $ui = '' ) {
 		</h2>
 		<div class="inside">
 			<div class="main">
-				<?php
-				if ( isset( $current['description'] ) ) {
-					$current['description'] = stripslashes_deep( $current['description'] );
-				}
-				?>
 				<table class="form-table cptui-table">
 					<?php
 
