@@ -105,7 +105,6 @@ function save_taxonomy_capabilities( array $data ) {
     $cptuic_settings = get_taxonomy_capabilities_data();
 
     $cptuic_settings[ $cpt_tax_slug ] = $cpt_capabilities_data;
-	#wp_die(var_dump($cptuic_settings));
 
 	set_taxonomy_capabilities_data( $cptuic_settings );
 }
@@ -123,7 +122,6 @@ add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_taxonomy_capab
  */
 function filter_taxonomy_arguments( $args, $taxonomy_slug, $taxonomy_data ) {
     $cptuic_settings = get_taxonomy_capabilities_data();
-	#wp_die(var_dump($cptuic_settings));
 
     $taxonomy = $cptuic_settings[ $taxonomy_slug ];
     foreach( $taxonomy as $cap_slug => $custom_value ) {
