@@ -34,11 +34,11 @@ function add_post_type_capabilities_ui( $ui = '' ) {
 	} ?>
 	<div class="cptuic-section postbox">
 		<button type="button" class="handlediv button-link" aria-expanded="true">
-			<span class="screen-reader-text" ><?php esc_html_e( 'Toggle panel: Capabilities', 'cptuiext' ); ?></span>
+			<span class="screen-reader-text" ><?php esc_html_e( 'Toggle panel: Post Type Capabilities', 'cptuiext' ); ?></span>
 			<span class="toggle-indicator" aria-hidden="true"></span>
 		</button>
 		<h2 class="hndle">
-			<span><?php esc_html_e( 'Capabilities', 'cptuiext' ); ?></span>
+			<span><?php esc_html_e( 'Post Type Capabilities', 'cptuiext' ); ?></span>
 		</h2>
 		<div class="inside">
 			<div class="main">
