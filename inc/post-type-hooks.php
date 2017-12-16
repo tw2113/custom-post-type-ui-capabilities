@@ -127,13 +127,13 @@ add_action( 'cptui_post_type_after_fieldsets', __NAMESPACE__ . '\add_post_type_c
 function save_post_type_capabilities( array $data ) {
 
     $cpt_slug = $data['cpt_custom_post_type']['name'];
-    $cpt_capabilities_data = $data['cptuic_capabilities'];
+    $cpt_capabilities_data = $data['cpt_custom_post_type_caps'];
 
-    $cptuic_settings = get_option( 'cptui_post_type_capabilities', array() );
+    $cptuic_settings = get_post_type_capabilities_data();
 
-    $cptuic_settings[ $cpt_slug ] = 'whatever';
+    $cptuic_settings[ $cpt_slug ] = $cpt_capabilities_data;
 
-    update_option( 'cptui_post_type_capabilities', $cptuic_settings );
+	set_post_type_capabilities_data( $cptuic_settings );
 }
 add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_post_type_capabilities' );
 
