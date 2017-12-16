@@ -148,10 +148,15 @@ add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_post_type_cap
  * @return mixed
  */
 function filter_post_type_arguments( $args, $post_type_slug, $post_type_data ) {
-    $cptui_settings = get_option( 'cptui_post_type_capabilities', array() );
+    $cptuic_settings = get_post_type_capabilities_data();
 
-    $post_type = $cptui_settings[ $post_type_slug ];
+    $post_type = $cptuic_settings[ $post_type_slug ];
+	foreach( $post_type as $cap_slug => $custom_value ) {
+		if ( ! empty( $custom_value ) ) {
+			$args['capabilities'][ $cap_slug ] = $custom_value;
+		}
+	}
 
-
+	return $args;
 }
 add_filter( 'cptui_pre_register_post_type', __NAMESPACE__ . '\filter_post_type_arguments', 10, 3 );
