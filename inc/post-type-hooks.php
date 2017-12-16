@@ -45,18 +45,68 @@ function add_post_type_capabilities_ui( $ui = '' ) {
 				<table class="form-table cptui-table">
 					<?php
 
-					echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Add to default category archive', 'cptuiext' ) . $ui->get_th_end() . $ui->get_td_start();
-					echo $ui->get_check_input( array(
-						'checkvalue' => '1',
-						'checked'    => ( isset( $current['cpt_to_category_archive'] ) ) ? 'true' : 'false',
-						'name'       => 'cptuic_capabilities',
-						'namearray'  => 'cptuic_capabilities',
-						'textvalue'  => '1',
-						'labeltext'  => esc_html__( 'Add the post entries from this post type to the default category archive.', 'cptuiext' ),
-						'helptext'   => esc_attr__( 'Add the post entries from this post type to the default category archive.', 'cptuiext' ),
-						'default'    => true,
-						'wrap'       => false,
+					echo $ui->get_tr_start() . $ui->get_th_start() . $ui->get_th_end() . $ui->get_td_start();
+
+					echo $ui->get_fieldset_start();
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'edit_post',
+						'textvalue' => ( isset( $current['edit_post'] ) ) ? esc_attr( $current['edit_post'] ) : '',
+						'labeltext' => esc_html__( '"Edit Post" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "edit_post".', 'custom-post-type-ui-capabilities' ),
 					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'read_post',
+						'textvalue' => ( isset( $current['read_post'] ) ) ? esc_attr( $current['read_post'] ) : '',
+						'labeltext' => esc_html__( '"Read Post" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "read_post".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'delete_post',
+						'textvalue' => ( isset( $current['delete_post'] ) ) ? esc_attr( $current['delete_post'] ) : '',
+						'labeltext' => esc_html__( '"Delete Post" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "delete_post".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'edit_posts',
+						'textvalue' => ( isset( $current['edit_posts'] ) ) ? esc_attr( $current['edit_posts'] ) : '',
+						'labeltext' => esc_html__( '"Edit Posts" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "edit_posts".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'edit_others_posts',
+						'textvalue' => ( isset( $current['edit_others_posts'] ) ) ? esc_attr( $current['edit_others_posts'] ) : '',
+						'labeltext' => esc_html__( '"Edit Others Posts" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "edit_others_posts".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'publish_posts',
+						'textvalue' => ( isset( $current['publish_posts'] ) ) ? esc_attr( $current['publish_posts'] ) : '',
+						'labeltext' => esc_html__( '"Publish Posts" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "publish_posts".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_post_type_caps',
+						'name'      => 'read_private_posts',
+						'textvalue' => ( isset( $current['read_private_posts'] ) ) ? esc_attr( $current['read_private_posts'] ) : '',
+						'labeltext' => esc_html__( '"Read Private Posts" Mapping', 'custom-post-type-ui-capabilities' ),
+						'helptext'  => esc_html__( 'Capability to map to "read_private_posts".', 'custom-post-type-ui-capabilities' ),
+					) );
+
+					echo $ui->get_fieldset_end();
+
 					echo $ui->get_td_end() . $ui->get_tr_end();
 					?>
 				</table>
