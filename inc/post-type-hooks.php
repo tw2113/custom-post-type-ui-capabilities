@@ -108,6 +108,22 @@ function add_post_type_capabilities_ui( $ui = '' ) {
 					echo $ui->get_fieldset_end();
 
 					echo $ui->get_td_end() . $ui->get_tr_end();
+
+					$select = array(
+						'options' => array(
+							array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui-capabilities' ) ),
+							array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui-capabilities' ), 'default' => 'true' ),
+						),
+					);
+					$selected = ( isset( $current ) ) ? disp_boolean( $current['map_meta_cap'] ) : '';
+					$select['selected'] = ( ! empty( $selected ) ) ? $current['map_meta_cap'] : '';
+					echo $ui->get_select_input( array(
+						'namearray'  => 'cpt_custom_post_type_caps',
+						'name'       => 'map_meta_cap',
+						'labeltext'  => esc_html__( 'Map Meta Cap Value', 'custom-post-type-ui-capabilities' ),
+						'aftertext'  => esc_html__( '(CPTUI default: true) Sets the map_meta_cap value for this post type.', 'custom-post-type-ui-capabilities' ),
+						'selections' => $select,
+					) );
 					?>
 				</table>
 			</div>
