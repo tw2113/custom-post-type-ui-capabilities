@@ -1,6 +1,5 @@
-=== Custom Post Type UI ===
+=== Custom Post Type UI Capabilities ===
 Contributors: tw2113
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.9.1
 Tested up to: 4.9.1
