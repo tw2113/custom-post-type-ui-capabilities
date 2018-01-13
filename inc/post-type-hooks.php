@@ -171,11 +171,15 @@ function filter_post_type_arguments( $args, $post_type_slug, $post_type_data ) {
 
     $post_type = $cptuic_settings[ $post_type_slug ];
     if ( ! empty( $post_type ) && is_array( $post_type ) ) {
-	    foreach ( $post_type as $cap_slug => $custom_value ) {
-		    if ( ! empty( $custom_value ) ) {
-			    $args['capabilities'][ $cap_slug ] = $custom_value;
-		    }
-	    }
+		foreach ( $post_type as $cap_slug => $custom_value ) {
+			if ( 'map_meta_cap' === $cap_slug ) {
+				$args['map_meta_cap'] = \get_disp_boolean( $custom_value );
+				continue;
+			}
+			if ( ! empty( $custom_value ) ) {
+				$args['capabilities'][ $cap_slug ] = $custom_value;
+			}
+		}
     }
 
 	return $args;
