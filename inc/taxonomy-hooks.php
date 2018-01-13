@@ -122,12 +122,17 @@ add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_taxonomy_capab
  */
 function filter_taxonomy_arguments( $args, $taxonomy_slug, $taxonomy_data ) {
     $cptuic_settings = get_taxonomy_capabilities_data();
+    if ( empty( $cptuic_settings ) ) {
+        return $args;
+    }
 
     $taxonomy = $cptuic_settings[ $taxonomy_slug ];
-    foreach( $taxonomy as $cap_slug => $custom_value ) {
-        if ( ! empty( $custom_value ) ) {
-            $args['capabilities'][ $cap_slug ] = $custom_value;
-        }
+    if ( ! empty( $taxonomy ) && is_array( $taxonomy ) ) {
+	    foreach ( $taxonomy as $cap_slug => $custom_value ) {
+		    if ( ! empty( $custom_value ) ) {
+			    $args['capabilities'][ $cap_slug ] = $custom_value;
+		    }
+	    }
     }
 
     return $args;
